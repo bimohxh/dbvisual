@@ -1,0 +1,55 @@
+html
+  head
+    <link rel="stylesheet" href="/css/main.css">
+    script(src="/js/vue.min.js")
+    script(src="/js/axios.min.js")
+  body
+    div#app
+      div.table
+        div.left-menu
+          div.inner
+            a.menu-item(v-for="(value, key) in dbs" v-bind:href="`#table-${key}`")
+              div {{key}}
+              div.table-comment {{tableComment(key)}}
+        div.table-box
+          div.table-item(v-for="(value, key) in dbs" v-bind:id="`table-${key}`") 
+            div.inner
+              div.title 
+                span {{key}}
+                span.table-comment {{tableComment(key)}}
+              div.field(v-for="field in value")
+                span.column {{field.COLUMN_NAME}}
+                span.data-type {{field.DATA_TYPE}}
+                span.comment {{field.COLUMN_COMMENT}}
+
+    script.
+      new Vue({
+        el: '#app',
+        data: {
+          dbs: [],
+          tables: {}
+        },
+        methods: {
+          // 获取表描述
+          tableComment: function (tableName) {
+            return this.tables[tableName].TABLE_COMMENT
+          }
+        },
+        created () {
+          axios.get('/dbs').then(res => {
+            this.tables = res.data.tables.reduce((result, item) => {
+              result[item.TABLE_NAME] = item
+              return result
+            }, {})
+
+
+
+            this.dbs = res.data.dbs.reduce((result, item) => {
+              let _key = item.TABLE_NAME
+              result[_key] = result[_key] || []
+              result[_key].push(item)
+              return result
+            }, {})
+          })
+        }
+      })

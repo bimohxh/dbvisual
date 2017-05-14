@@ -1,0 +1,98 @@
+body {
+  font-family: -apple-system,PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Helvetica Neue,sans-serif;
+  text-rendering: optimizeLegibility;
+  background-color: #f4f5f5;
+  color: #333;
+  word-break: break-word;
+  font-size: 14px;
+}
+
+.table {
+  position: relative;
+  padding-left: 220px;
+}
+
+.left-menu {
+  width: 200px;
+  position:  fixed;
+  left: 20px;
+  top: 20px;
+}
+
+.left-menu .inner {
+  background-color: #FFF;
+  padding: 10px 0
+}
+
+.left-menu .menu-item {
+  padding: 10px;
+  border-top: #EEE 1px solid;
+  display: block;
+  text-decoration: none;
+  color: #444;
+  font-weight: bold
+}
+
+.left-menu .menu-item:first-child {
+  border: 0
+}
+
+.menu-item .table-comment {
+  font-weight: normal;
+  color: #a5a5a5;
+  margin-top: 10px;
+}
+
+.table-item {
+  padding: 20px;
+}
+
+.table-item .inner {
+  background-color: #FFF;
+}
+
+
+
+.table-box {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column
+}
+
+.table .title {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
+  border-bottom: #EEE 1px solid;
+}
+
+.table-box .table-comment {
+  font-weight: normal;
+  color: #a5a5a5;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.table-box .column {
+  padding: 5px 10px;
+  background-color: rgba(255, 214, 29, 0.42);
+}
+
+.table .field {
+  padding: 15px;
+  border-bottom: #EEE 1px dashed;
+  font-size: 15px;
+}
+
+.table .comment {
+  color: #AAA;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.table .data-type {
+  color: #75c2da;
+  margin-left: 10px;
+  font-size: 12px;
+  
+}
